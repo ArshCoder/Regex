@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class userRegistration {
     public static boolean isValidUser(String userName){
-        String regex = "^[A-Z]{1}[a-z A-Z]{3,}+$";
+        String regex = "^[A-Z]{1}[a-z A-Z]{2,}+$";
         Pattern pattern = Pattern.compile(regex);
         if (userName == null) {
             return false;
@@ -17,8 +17,12 @@ public class userRegistration {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter UserName: ");
+        System.out.println("Enter a Name Start with capital letter and at least 3 character: ");
         String userName = scan.nextLine();
         System.out.println(userName + ":" + isValidUser(userName));
+
+        System.out.println("Enter a LastName Start with capital letter and at least 3 character: ");
+        String lastName = scan.nextLine();
+        System.out.println(lastName + ":" + isValidUser(lastName));
     }
 }
