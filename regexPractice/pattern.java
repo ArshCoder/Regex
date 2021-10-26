@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class pattern {
     public static boolean isValidPinCode(String pinCode) {
-        String regex = "^[a-z A-Z]{0}[1-9]{1}[0-9]{2}[0-9]{3}[a-z A-Z]{0}$";
+        String regex = "^[a-z A-Z]{0}[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}[a-z A-Z]{0}$";
         Pattern pattern = Pattern.compile(regex);
         if (pinCode == null) {
             return false;
@@ -24,5 +24,8 @@ public class pattern {
 
         String pin3 = "400088B";
         System.out.println(pin3 + ":" + isValidPinCode(pin3));
+
+        String pin4 = "400 088";
+        System.out.println(pin4 + ":" + isValidPinCode(pin4));
     }
 }
