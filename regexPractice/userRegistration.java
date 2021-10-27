@@ -37,6 +37,17 @@ public class userRegistration {
         return match.matches();
     }
 
+    public static boolean isValidPassword(String password) {
+        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+
+        Pattern pattern = Pattern.compile(regex);
+        if (password == null) {
+            return false;
+        }
+        Matcher match = pattern.matcher(password);
+        return match.matches();
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a Name Start with capital letter and at least 3 character: ");
@@ -55,6 +66,8 @@ public class userRegistration {
         String num = scan.nextLine();
         System.out.println(num + " : " + isValidNum(num));
 
-
+        System.out.println("Enter a Valid Password : ");
+        String password = scan.nextLine();
+        System.out.println(password + " : " + isValidPassword(password));
     }
 }
