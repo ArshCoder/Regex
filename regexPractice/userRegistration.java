@@ -26,7 +26,16 @@ public class userRegistration {
         Matcher match = pattern.matcher(email);
         return match.matches();
     }
+    public static boolean isValidNum(String num) {
+        String regex = "(0/91)?[7-9][0-9]{9}";
 
+        Pattern pattern = Pattern.compile(regex);
+        if (num == null) {
+            return false;
+        }
+        Matcher match = pattern.matcher(num);
+        return match.matches();
+    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -41,6 +50,10 @@ public class userRegistration {
         System.out.println("Enter a Valid email : ");
         String email = scan.nextLine();
         System.out.println(email + " : " + isValidEmail(email));
+
+        System.out.println("Enter a Valid Mobile Number : ");
+        String num = scan.nextLine();
+        System.out.println(num + " : " + isValidNum(num));
 
 
     }
